@@ -1,8 +1,5 @@
-export interface User {
-    id: string;
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    token: string;
+export class User {
+    id: string | undefined;
+    email: string | undefined;
+    password: string | undefined;
 }
