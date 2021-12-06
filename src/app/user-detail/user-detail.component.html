@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="card">
+        <h3 class="text-center"> Users Detail</h3>
+        <div class="card-body" *ngIf="user">
+            <div>Id: {{ user.id}}</div>
+            <div>Email: {{ user.email}}</div>
+            <div>Name: {{ user.name}}</div>
+            <div>Status: {{ user.status}}</div>
+        </div>
+    </div>
+</div>
