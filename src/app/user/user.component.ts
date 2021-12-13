@@ -24,6 +24,9 @@ export class UserComponent implements OnInit {
   viewUser(id: number) {
     this.router.navigate(['/user/detail', id]);
   }
+  updateUser(id: number) {
+    this.router.navigate(['/user/update', id]);
+  }
   deleteUser(id: number) {
     this.userService.deleteUser(id)
       .subscribe(

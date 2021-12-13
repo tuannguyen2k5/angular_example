@@ -9,8 +9,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  user: User | undefined;
-  id: number | undefined;
+  user!: User;
+  id!: number;
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class UserDetailComponent implements OnInit {
       }, error => console.log(error));
   }
   list() {
-    this.router.navigate(['user/all']);
+    this.router.navigate(['users']);
   }
 
 }

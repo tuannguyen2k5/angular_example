@@ -15,11 +15,16 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}` + "/all");
   }
-  viewUser(id: number): Observable<User> {
+  getUser(id: number): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/detail/${id}`);
   }
-
+  createUser(user: User): Observable<Object> {
+    return this.http.post(`${this.baseUrl}` + "/add", user);
+  }
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/delete/${id}`, { responseType: 'text' });
+  }
+  updateUser(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/update?id=${id}`, value);
   }
 }

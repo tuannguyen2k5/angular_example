@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,8 @@ import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SignupComponent } from './signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,10 +20,13 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     UserDetailComponent,
     CreateUserComponent,
     EditUserComponent,
+    NavbarComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

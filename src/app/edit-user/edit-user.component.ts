@@ -10,8 +10,8 @@ import { UserService } from '../user.service';
 })
 export class EditUserComponent implements OnInit {
 
-  id: number | undefined;
-  user: User | undefined;
+  id!: number;
+  user!: User;
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -38,7 +38,7 @@ export class EditUserComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/user/all']);
+    this.router.navigate(['/users']);
   }
 
 }
