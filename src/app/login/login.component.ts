@@ -11,6 +11,8 @@ import { RegistrationService } from '../registration.service';
 export class LoginComponent implements OnInit {
   user = new User();
   form!: FormGroup;
+  msg = '';
+  submitted = false;
   constructor(private _service: RegistrationService, private router: Router, private fb: FormBuilder) { }
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -31,7 +33,11 @@ export class LoginComponent implements OnInit {
         console.log(data);
         this.router.navigate(['']);
       },
-      error => console.log("failed"),
+      error => {
+        console.log("failed");
+        this.submitted = true;
+        this.msg = "Please try again";
+      },
     );
   }
   gotoSignup() {
