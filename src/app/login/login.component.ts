@@ -10,11 +10,22 @@ import { RegistrationService } from '../registration.service';
 })
 export class LoginComponent implements OnInit {
   user = new User();
-  constructor(private _service: RegistrationService, private router: Router) { }
+  form!: FormGroup;
+  constructor(private _service: RegistrationService, private router: Router, private fb: FormBuilder) { }
   ngOnInit(): void {
-
+    this.form = new FormGroup({
+      email: new FormControl(this.user.email, [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+      password: new FormControl(this.user.password, [
+        Validators.required,
+      ])
+    });
   }
+
   onSubmit() {
+    this.setUser();
     this._service.login(this.user).subscribe(
       data => {
         console.log(data);
@@ -25,5 +36,9 @@ export class LoginComponent implements OnInit {
   }
   gotoSignup() {
     this.router.navigate(['signup']);
+  }
+  setUser() {
+    this.user.email = this.form.get('email')?.value;
+    this.user.password = this.form.get('password')?.value;
   }
 }
